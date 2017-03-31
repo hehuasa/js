@@ -1,0 +1,42 @@
+html{
+    font-size: 625%;
+}
+body{
+    padding: 0;margin: 0;
+}
+.wrap {
+    margin: 0 auto;
+    width:34%;
+    overflow: hidden;
+}
+
+.rule1 {
+    float: left;margin:.5% 1% 0 0;padding:16%;
+    background: #e78326; border-radius:5%;
+}
+
+.btn{
+    position: relative;
+    margin-top: 4%;
+}
+.btn-left{
+    height: .5rem;width: 1rem;
+    position: absolute;
+    left: 30%;
+    color: wheat;
+    outline: none;
+    border: gray;background: green;
+    border-radius: .1rem;
+}
+.btn-left:hover,.btn-right:hover{
+    background: saddlebrown;
+}
+.btn-right{
+    height: .5rem;width: 1rem;
+    position: absolute;
+    right: 30%;
+    color: wheat;
+    outline: none;
+    border: gray;background: orange;
+    border-radius: .1rem;
+}
