@@ -17,7 +17,8 @@ var menu = {
             case "step3":
                 this.state="step4"; break;
             case "step4":
-                this.state="step1"; break;
+                this.state="step1";
+                break;
         }
     },
     event:function(){this.initialize()}
@@ -30,89 +31,168 @@ var btn3 = new switches();
 var btn4 = new switches();
 var fold_ = new switches();
 
-//控制每一天的菜单折叠
-function fold(){
-    fold_.event();
-    var a =document.getElementById("step_");
-    if(fold_.state=="step1"){
-       a.style.display="none";
-    }
-    else {
-        a.style.display="inline-block";
-    }
 
-}
-
-//定义天数,取出存储的天数值
+//取出存储的天数值以及点击数值
 var day = localStorage.day_;
-console.log(day);
-if(day == undefined){
+var click = localStorage.click_;
+if (day==undefined){
     day =1;
-    var i = 1;
-
 }
 else {
-    day = localStorage.day_;
-    i = day
+    day = parseInt(localStorage.day_);
 }
-var sourceNode=document.getElementById("day_");
-var clonedNode = sourceNode.cloneNode(true); // 克隆节点
-clonedNode.setAttribute("id", "day_"+i ); // 修改一下id 值，避免id 重复
+if (click==undefined){
+    click =0;
+}
+else {
+    click =parseInt( localStorage.click_);
+}
+
+
+
+
+//提前复制下一天的数据（初始值）。
+var sourceNode_date_=document.getElementById("date_");
+var sourceNode_step_=document.getElementById("step_");
+var sourceNode_btn_=document.getElementById("fold_menu");
+
+
+
+var i =1;
+for (i =1;i<=day;i++){
+console.log(i);
+
+    var clonedNode_date_ = sourceNode_date_.cloneNode(true); // 克隆节点
+    var clonedNode_step_ = sourceNode_step_.cloneNode(true); // 克隆节点
+
+    sourceNode_date_.parentNode.appendChild((clonedNode_date_));// 在父节点插入克隆的节点
+
+    var daxie = new Array("一","二","三","四","五","六","七","八","九","十","十一","十二","十三","十四");//修改天数显示
+    clonedNode_date_.innerText="第"+daxie[i-1]+"天";
+
+    sourceNode_step_.parentNode.appendChild(clonedNode_step_);
+    clonedNode_date_.style.display="inline-block";
+    clonedNode_step_.style.display="inline-block";
+
+
+
+
+    console.log(i);
+    clonedNode_date_.setAttribute("id","day_"+i);///修改被复制元素的id，以避免重复
+    clonedNode_step_.setAttribute("id","step_"+i);
+
+    var step=document.getElementById("step_"+i);
+    var step_content=step.getElementsByClassName("step-btn");
+    console.log(step);
+console.log(step_content[0]);
+}
+
+
+//控制每一天的菜单折叠
+var swich =0;
+function fold(){
+    var target=event.target;
+    var nextSibling =target.nextSibling;
+
+    if(swich ==0){
+        nextSibling.style.display="none";
+        swich =1;
+    }
+    else {
+        nextSibling.style.display="inline-block";
+        swich =0;
+    }
+}
+
+//将之前的天数及步骤设置为已经触发
+var past = document.getElementsByClassName("step-btn");
+var clicks = click+4;
+console.log( clicks);
+for(var e=0;e<click+8;e++){
+    console.log(click);
+    past[e].style.background="#92B7A5";
+    past[e].onclick=function(){
+        confirm("请按照游戏步骤进行");
+    }
+}
+
+
 
 //杀手请杀人
-function kill(){
-
+step_content[0].onclick = function(){
     btn1.event();
-    if (btn1.state=="step1"&& day==i ){
-        document.getElementById("kill").style.background="yellow";
+    console.log(btn1.state);
+
+    if (btn1.state=="step1" && click==(day-2)*4){
+        step_content[0].style.background="#92B7A5";
         window.open("js-task2-4-3.html");
         btn2.state="step1";
+        click++;
+        localStorage.click_=click;//存储步骤数
+
+      var  state_1=btn2.state;//存储状态机的状态
+        localStorage.state=state_1;
+
+        return click;
+
     }else
-     {
+    {
         confirm("请按照游戏步骤进行");
     }
-}
-//亡灵发表遗言
-function dead(){
-    btn2.event();
+
     console.log(btn2.state);
-    if (btn2.state=="step2"&& day==i ){
-        document.getElementById("dead").style.background="yellow";
+};
+//亡灵发表遗言
+step_content[1].onclick = function(){
+    var state_2=localStorage.state;//读取状态机的状态
+    btn2.state = state_2;
+    btn2.event();
+
+    console.log(btn2.state);
+
+    if (btn2.state=="step2"){
+        step_content[1].style.background="#92B7A5";
         btn3.state="step2";
+        click++;
     }
     else
     {
         confirm("请按照游戏步骤进行");
     }
-}
+};
 //玩家依次发言
-function talk(){
+step_content[2].onclick = function(){
     btn3.event();
     console.log(btn3.state);
-    if (btn3.state=="step3"&& day==i ){
-        document.getElementById("talk").style.background="yellow";
+    if (btn3.state=="step3"){
+        step_content[2].style.background="#92B7A5";
         btn4.state="step3";
+        click++;
     }
     else
     {
         confirm("请按照游戏步骤进行");
     }
-}
+};
 //全民投票
-function vote(){
+step_content[3].onclick = function(){
     btn4.event();
     console.log(btn4.state);
-    if (btn4.state=="step4"&& day==i ){
+    if (btn4.state=="step4"){
+
+        step_content[3].style.background="#92B7A5";
         day++;
-        document.getElementById("vote"+i).style.background="yellow";
+        click++;
         localStorage.day_=day;//存储天数
-            sourceNode.parentNode.appendChild(clonedNode); // 在父节点插入克隆的节点
+        localStorage.click_=click;//存储步骤数
+        window.open("js-task2-4-4.html");
     }
     else
     {
         confirm("请按照游戏步骤进行");
     }
-}
+    return step;
+};
 //法官日志
 function log(){
    window.open("js-task2-4-1.html")

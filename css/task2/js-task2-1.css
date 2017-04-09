@@ -1,1 +1,81 @@
-body{background:#f0f0f0;padding-bottom:.3rem}.header-warp{background:#29bde0}main .main-warp .lastgame{position:relative;margin-top:.3rem;height:1.2rem;width:90%;font-size:.24rem;color:#999;font-weight:100;background:#fff}main .main-warp .lastgame .btn-line{position:absolute;right:.15rem;top:50%;transform:translateY(-50%)}main .main-warp .main-warp-content{display:inline-block;position:relative;margin-top:.3rem;width:90%;background:#fff}main .main-warp .main-warp-content .tittle{margin-bottom:.3rem;height:.9rem;width:100%;font-size:.24rem;color:#fc3;border-bottom:.01rem solid #fc3}main .main-warp .main-warp-content .option{width:100%;background:#fff}main .main-warp .main-warp-content .option .triangle{position:absolute;top:50%;right:.25rem;transform:translateY(-50%)}main .main-warp .main-warp-content .option .option-btn{position:relative;margin:0 auto;width:70%;height:1.2rem;font-size:.24rem;color:#fff;background:#29bde0}main .main-warp .main-warp-content .option .describe{width:70%;height:.7rem;font-size:.2rem;color:#999}main .main-warp .main-warp-content .scroll{display:inline-block;margin:.2rem 0;height:.1rem;width:.7rem}main .main-warp .main-warp-content .scroll .dot{float:left;margin-left:.1rem;width:.1rem;height:.1rem;border:.01rem solid #999;border-radius:50%}main .main-warp .main-warp-content .scroll .dot:hover{background:#29bde0;outline:none}
+body {
+  background: #f0f0f0;
+  padding-bottom: 0.3rem;
+}
+.header-warp {
+  background: #29bde0;
+}
+main .main-warp .lastgame {
+  position: relative;
+  margin-top: 0.3rem;
+  height: 1.2rem;
+  width: 90%;
+  font-size: 0.24rem;
+  color: #999999;
+  font-weight: 100;
+  background: #ffffff;
+}
+main .main-warp .lastgame .btn-line {
+  position: absolute;
+  right: .15rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+main .main-warp .main-warp-content {
+  display: inline-block;
+  position: relative;
+  margin-top: 0.3rem;
+  width: 90%;
+  background: #ffffff;
+}
+main .main-warp .main-warp-content .tittle {
+  margin-bottom: 0.3rem;
+  height: 0.9rem;
+  width: 100%;
+  font-size: 0.24rem;
+  color: #ffcc33;
+  border-bottom: 0.01rem solid #ffcc33;
+}
+main .main-warp .main-warp-content .option {
+  width: 100%;
+  background: #ffffff;
+}
+main .main-warp .main-warp-content .option .triangle {
+  position: absolute;
+  top: 50%;
+  right: 0.25rem;
+  transform: translateY(-50%);
+}
+main .main-warp .main-warp-content .option .option-btn {
+  position: relative;
+  margin: 0 auto;
+  width: 70%;
+  height: 1.2rem;
+  font-size: 0.24rem;
+  color: #ffffff;
+  background: #29bde0;
+}
+main .main-warp .main-warp-content .option .describe {
+  width: 70%;
+  height: 0.7rem;
+  font-size: 0.2rem;
+  color: #999999;
+}
+main .main-warp .main-warp-content .scroll {
+  display: inline-block;
+  margin: 0.2rem 0;
+  height: 0.1rem;
+  width: 0.7rem;
+}
+main .main-warp .main-warp-content .scroll .dot {
+  float: left;
+  margin-left: 0.1rem;
+  width: 0.1rem;
+  height: 0.1rem;
+  border: 0.01rem solid #999999;
+  border-radius: 50%;
+}
+main .main-warp .main-warp-content .scroll .dot:hover {
+  background: #29bde0;
+  outline: none;
+}

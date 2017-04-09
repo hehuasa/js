@@ -57,10 +57,6 @@ function back(){
     for(w=0; player[w].getElementsByClassName("li2").length<1;w++){
     }
     console.log(num[w]);
-    if (num[w] == "杀手") {
-        confirm("杀手不能自杀");
-        return;
-    }
     condition[w]="死亡";
     console.log(condition);
     condition_ =condition.join("|");
@@ -75,20 +71,24 @@ for (var p =0;p<=num.length;p++){
 
     if (num[p]=="杀手"){
         killer_num++
+
     }
-    else {
-        farmer_num++
+    else if((num[p]=="平民")){
+        farmer_num++;
+
     }
+    console.log(farmer_num)
+    console.log(killer_num)
 }
     var dead = document.getElementsByClassName("li2");
     dead[0].style.display="none";
     var death_num=dead.length;
     var survivor = farmer_num - death_num;
-    if(killer_num<=survivor){
+    if(killer_num<=survivor ){
         //跳转网页
         window.open("js-task2-4-2.html")
     }
-    else {
+    else if(killer_num>survivor||killer_num == 0 ){
         window.open("js-task2-4-5.html")
     }
 
