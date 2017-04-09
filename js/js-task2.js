@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2017/4/1.
  */
+localStorage.clear();//清除缓存
 //定义全局变量
 var totalnum ;
 var part0 ;
