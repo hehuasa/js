@@ -48,6 +48,10 @@ else {
     click =parseInt( localStorage.click_);
 }
 
+var x =localStorage.num_;//获取玩家角色分配数据
+var num =x.split("|");
+console.log(num);
+
 
 
 
@@ -58,7 +62,7 @@ var sourceNode_btn_=document.getElementById("fold_menu");
 
 
 
-var i =1;
+var i ;
 for (i =1;i<=day;i++){
 console.log(i);
 
@@ -83,8 +87,82 @@ console.log(i);
 
     var step=document.getElementById("step_"+i);
     var step_content=step.getElementsByClassName("step-btn");
-    console.log(step);
-console.log(step_content[0]);
+    var text_=step.getElementsByTagName("div");
+
+
+}
+//获取玩家生死状态数组
+var condition_=localStorage.condition_;
+var condition =condition_.split("|");
+console.log(condition);
+
+
+var deadnum ;//获取死亡玩家的序号，并组成数组
+
+var deadman;//获取死亡玩家的角色，并组成数组
+var c=0;
+
+deadnum=localStorage.deadnum_;
+if (deadnum==undefined){
+    deadnum = new Array();
+}else {
+    deadnum_=localStorage.deadnum_;
+    deadnum = deadnum_.split("|")
+}
+
+
+deadman_=localStorage.deadman_;
+if (deadman==undefined){
+    deadman = new Array();
+}else {
+    deadman_=localStorage.deadman_;
+    deadman= deadman_.split("|")
+}
+
+parseInt(c);
+console.log(c);
+for (var g=0;g<num.length;g++){
+    console.log(c);
+    if (condition[g]=="死亡"){
+        console.log(c);
+        deadnum[c]=g+1;
+        console.log(c);
+        deadman[c]=num[g];
+        c++
+    }
+
+}
+console.log(c);
+console.log(deadnum);
+console.log(deadman);
+var deadman_= deadman.join("|");
+var deadnum_= deadnum.join("|");
+localStorage.deadman_=deadman_;
+localStorage.deadnum_=deadnum_;
+
+//杀人信息显示与修改
+var text=document.getElementsByClassName("text");
+console.log(text);
+console.log(deadman);
+console.log(click);
+var text_num;
+for (  text_num=0;text_num<=day;text_num = text_num+2){
+    console.log(text_num);
+    console.log(click);
+    var killer_text=text_num+2;
+    var vote_text=text_num+3;
+    text[killer_text].innerText=deadnum[text_num]+"号被杀手杀死，真实身份是"+deadman[text_num];
+     console.log(text_num);
+    console.log(click);
+    text[vote_text].innerText=deadnum[text_num+1]+"号被投票杀死，真实身份是"+deadman[text_num+1];
+    console.log(text_num);
+    console.log(click);
+    if (click>=(text_num*2)+1 && click<(text_num*2)+4){
+        text[text_num+2].style.display="inline-block"
+    }
+    if (click>=(text_num*2)+4){
+        text[text_num+3].style.display="inline-block";text[text_num+2].style.display="inline-block"
+    }
 }
 
 
@@ -106,9 +184,8 @@ function fold(){
 
 //将之前的天数及步骤设置为已经触发
 var past = document.getElementsByClassName("step-btn");
-var clicks = click+4;
-console.log( clicks);
-for(var e=0;e<click+8;e++){
+
+for(var e=0;e<click+4;e++){
     console.log(click);
     past[e].style.background="#92B7A5";
     past[e].onclick=function(){
@@ -121,15 +198,12 @@ for(var e=0;e<click+8;e++){
 //杀手请杀人
 step_content[0].onclick = function(){
     btn1.event();
-    console.log(btn1.state);
-
-    if (btn1.state=="step1" && click==(day-2)*4){
+    if (btn1.state=="step1" && click==(day-1)*4){
         step_content[0].style.background="#92B7A5";
         window.open("js-task2-4-3.html");
         btn2.state="step1";
         click++;
         localStorage.click_=click;//存储步骤数
-
       var  state_1=btn2.state;//存储状态机的状态
         localStorage.state=state_1;
 
@@ -147,11 +221,9 @@ step_content[1].onclick = function(){
     var state_2=localStorage.state;//读取状态机的状态
     btn2.state = state_2;
     btn2.event();
-
     console.log(btn2.state);
-
     if (btn2.state=="step2"){
-        step_content[1].style.background="#92B7A5";
+        confirm("请亡灵发表遗言");
         btn3.state="step2";
         click++;
     }
@@ -165,7 +237,7 @@ step_content[2].onclick = function(){
     btn3.event();
     console.log(btn3.state);
     if (btn3.state=="step3"){
-        step_content[2].style.background="#92B7A5";
+        confirm("请玩家依次发言");
         btn4.state="step3";
         click++;
     }
@@ -179,12 +251,12 @@ step_content[3].onclick = function(){
     btn4.event();
     console.log(btn4.state);
     if (btn4.state=="step4"){
-
         step_content[3].style.background="#92B7A5";
         day++;
         click++;
         localStorage.day_=day;//存储天数
         localStorage.click_=click;//存储步骤数
+
         window.open("js-task2-4-4.html");
     }
     else

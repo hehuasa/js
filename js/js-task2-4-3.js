@@ -30,7 +30,7 @@ $(document).ready(
                 var player = document.getElementsByClassName("empty-box1");
                 var dead_mam= player[death];
                 console.log(dead_mam);
-                dead_mam.style.opacity="0.5"
+                dead_mam.className="empty-box1 box_opacity"
             }
 
         }
@@ -49,12 +49,14 @@ function kill() {//杀手杀人时出现的鼠标事件
 
 }
 
+var farmer_dead;
+var killer_dead;
 
 function back(){
 //获取被杀玩家所在元素的位置并存储
     var player = document.getElementsByClassName("empty-box1");
-    var w ;
-    for(w=0; player[w].getElementsByClassName("li2").length<1;w++){
+
+    for(var w=0; player[w].getElementsByClassName("li2").length<1;w++){
     }
     console.log(num[w]);
     if (num[w] == "杀手") {
@@ -67,28 +69,68 @@ function back(){
     localStorage.condition_= condition_;
 
 
+    //去除杀人的鼠标事件
+    var z = document.getElementsByClassName("li2");
+    console.log(z);
+    z[0].style.display="none";
+    //判断被杀人员是否在上一轮死亡
+    var parent= z[0].parentElement.parentElement;
+    console.log(parent.className);
+    if (parent.className=="empty-box1 box_opacity"){
+        confirm("角色已在上一轮死亡");
+        return;
+    }
+    else {
+        parent.className="empty-box1 box_opacity";
+
+    }
+
 
 //判断游戏是否结束
     var killer_num = 0;
     var farmer_num = 0;
-for (var p =0;p<=num.length;p++){
+    for (var p =0;p<=num.length;p++){
 
-    if (num[p]=="杀手"){
-        killer_num++
+        if (num[p]=="杀手"){
+            killer_num++
+
+        }
+        else if((num[p]=="平民")){
+            farmer_num++;
+
+        }
+        console.log(farmer_num);
+        console.log(killer_num);
+    }//定义并赋值全部杀手、平民的人数
+
+    var dead = document.getElementsByClassName("box_opacity");//统计死亡人数，并区分角色
+    console.log(dead);
+
+    for (var q=0;q<dead.length;q++){
+        console.log(dead[q]);
+        var l=dead[q].getElementsByClassName("role1");
+        console.log(l);
+        if (l[0].innerText=="平民"){
+            farmer_dead=q;
+        }else {
+            killer_dead=q;
+        }
+        console.log(farmer_dead);
+        console.log(killer_dead);
     }
-    else {
-        farmer_num++
+    if (killer_dead==undefined){//如果杀手无人死亡，则定义为0
+        killer_dead=0
     }
-}
-    var dead = document.getElementsByClassName("li2");
-    dead[0].style.display="none";
-    var death_num=dead.length;
-    var survivor = farmer_num - death_num;
-    if(killer_num<=survivor){
+    var farmer_survivor =farmer_num - farmer_dead;//定义两种角色的生存人数
+    var killer_survivor=killer_num - killer_dead;
+
+
+
+    if(killer_survivor<farmer_survivor ){
         //跳转网页
         window.open("js-task2-4-2.html")
     }
-    else {
+    else if(killer_survivor>farmer_survivor||killer_survivor==0){
         window.open("js-task2-4-5.html")
     }
 
