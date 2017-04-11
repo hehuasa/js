@@ -5,6 +5,7 @@ var x =localStorage.num_;
 var num =x.split("|");
 console.log(num);
 var condition_=localStorage.condition_;
+var condition=condition_.split("|");
 console.log(condition_);
 
 
@@ -23,14 +24,17 @@ $(document).ready(
              console.log(num.length);
              console.log(a)
         }
+        for(var death=0;death<condition.length;death++){//对已死亡玩家进行标记
 
-        var z =localStorage.w;//获取被杀死玩家数据
-        console.log(z);
-        var player = document.getElementsByClassName("empty-box1");
-        console.log(player);
-        if(z!=0){
-            player[z].style.opacity="0.5";
+            if(condition[death]=="死亡"){
+                var player = document.getElementsByClassName("empty-box1");
+                var dead_mam= player[death];
+                console.log(dead_mam);
+                dead_mam.className="empty-box1 box_opacity"
+            }
+
         }
+
     }
 );
 

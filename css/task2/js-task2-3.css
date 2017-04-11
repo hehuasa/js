@@ -135,7 +135,7 @@ html {
   transform: translate(-50%, -50%);
 }
 .borderline-solid {
-  border: 0.01rem solid #999999;
+  border: 0.01rem solid #bbbbb7;
 }
 .borderline-top-solid {
   border-top: 0.01rem solid #999999;
@@ -178,7 +178,7 @@ img {
   cursor: pointer;
 }
 .box-shadow {
-  box-shadow: 0.005rem 0.005rem 0.005rem #888888;
+  box-shadow: 0.005rem 0.005rem 0.005rem #bbbbb7;
 }
 /* layout of header*/
 html {

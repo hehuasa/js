@@ -91,54 +91,22 @@ console.log(i);
 
 
 }
-//获取玩家生死状态数组
-var condition_=localStorage.condition_;
-var condition =condition_.split("|");
-console.log(condition);
 
+var  deadnum=localStorage.deadnum_;//取出存储的死亡玩家序号数组
 
-var deadnum ;//获取死亡玩家的序号，并组成数组
-
-var deadman;//获取死亡玩家的角色，并组成数组
-var c=0;
-
-deadnum=localStorage.deadnum_;
 if (deadnum==undefined){
     deadnum = new Array();
 }else {
-    deadnum_=localStorage.deadnum_;
+    var deadnum_=localStorage.deadnum_;
     deadnum = deadnum_.split("|")
 }
-
-
-deadman_=localStorage.deadman_;
+var  deadman=localStorage.deadman_;//取出存储的死亡玩家身份数组
 if (deadman==undefined){
     deadman = new Array();
 }else {
-    deadman_=localStorage.deadman_;
+    var deadman_=localStorage.deadman_;
     deadman= deadman_.split("|")
 }
-
-parseInt(c);
-console.log(c);
-for (var g=0;g<num.length;g++){
-    console.log(c);
-    if (condition[g]=="死亡"){
-        console.log(c);
-        deadnum[c]=g+1;
-        console.log(c);
-        deadman[c]=num[g];
-        c++
-    }
-
-}
-console.log(c);
-console.log(deadnum);
-console.log(deadman);
-var deadman_= deadman.join("|");
-var deadnum_= deadnum.join("|");
-localStorage.deadman_=deadman_;
-localStorage.deadnum_=deadnum_;
 
 //杀人信息显示与修改
 var text=document.getElementsByClassName("text");
@@ -146,15 +114,30 @@ console.log(text);
 console.log(deadman);
 console.log(click);
 var text_num;
-for (  text_num=0;text_num<=day;text_num = text_num+2){
+for (  text_num=0;text_num<click;text_num=text_num+2){
     console.log(text_num);
     console.log(click);
-    var killer_text=text_num+2;
+    console.log(day);
+    var killer_text=text_num+2;//页面原始的两个块设置为不显示了，所以从第三个块开始
+    if((text[killer_text])==undefined){
+        break
+    }else {
+        text[killer_text].innerText=deadnum[text_num]+"号被杀手杀死，真实身份是"+deadman[text_num];
+        console.log(text_num);
+        console.log(text[killer_text]);
+    }
     var vote_text=text_num+3;
-    text[killer_text].innerText=deadnum[text_num]+"号被杀手杀死，真实身份是"+deadman[text_num];
-     console.log(text_num);
-    console.log(click);
-    text[vote_text].innerText=deadnum[text_num+1]+"号被投票杀死，真实身份是"+deadman[text_num+1];
+    console.log(vote_text);
+    console.log(text[vote_text]);
+    if((text[vote_text])==undefined){
+        break
+    }else {
+        text[vote_text].innerText=deadnum[text_num+1]+"号被投票杀死，真实身份是"+deadman[text_num+1];
+        console.log(text[vote_text]);
+    }
+
+
+
     console.log(text_num);
     console.log(click);
     if (click>=(text_num*2)+1 && click<(text_num*2)+4){
@@ -270,7 +253,9 @@ function log(){
    window.open("js-task2-4-1.html")
 }
 //结束游戏
-
+function again(){
+    window.open("js-task2-4-5.html")
+}
 //进入下一天
 
 

@@ -24,13 +24,18 @@
 </header>
 <main>
     <div class="main-warp " >
-        <button class="date borderline-solid font-l blue flex-center-middle" id="date_" onclick="fold()">第一天</button>
+        <button class="date box-shadow font-l blue flex-center-middle" id="date_" onclick="fold()">第一天</button>
 
 
     <div class="step" id="step_">
+        <div class="triangle1 triangle_1"></div>
         <button class="step-btn" id="kill">杀手杀人</button>
+        <div class="img-night"><img src="../img/night.png"></div>
+        <div class="line1 borderline-solid"></div>
         <div class="text">12</div>
         <button class="step-btn" id="dead">亡灵发表遗言</button>
+        <div class="img-light"><img src="../img/light.png"></div>
+        <div class="line2 borderline-solid"></div>
         <button class="step-btn" id="talk">玩家依次发言</button>
         <button class="step-btn" id="vote" >全民投票</button>
         <div class="text">12</div>
@@ -40,7 +45,7 @@
 </main>
 <footer>
     <div class="footer-warp">
-        <button type="button" class="footer-btn-left" onclick="">结束游戏</button>
+        <button type="button" class="footer-btn-left" onclick="again()">结束游戏</button>
         <button type="button" class="footer-btn-left" onclick="log()">法官日志</button>
 
     </div>
