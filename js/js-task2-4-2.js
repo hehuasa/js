@@ -64,7 +64,7 @@ var sourceNode_btn_=document.getElementById("fold_menu");
 
 var i ;
 for (i =1;i<=day;i++){
-console.log(i);
+
 
     var clonedNode_date_ = sourceNode_date_.cloneNode(true); // 克隆节点
     var clonedNode_step_ = sourceNode_step_.cloneNode(true); // 克隆节点
@@ -81,7 +81,7 @@ console.log(i);
 
 
 
-    console.log(i);
+
     clonedNode_date_.setAttribute("id","day_"+i);///修改被复制元素的id，以避免重复
     clonedNode_step_.setAttribute("id","step_"+i);
 
@@ -110,44 +110,46 @@ if (deadman==undefined){
 
 //杀人信息显示与修改
 var text=document.getElementsByClassName("text");
-console.log(text);
-console.log(deadman);
-console.log(click);
+
+var line_left=document.getElementsByClassName("line-left");
+
 var text_num;
 for (  text_num=0;text_num<click;text_num=text_num+2){
-    console.log(text_num);
-    console.log(click);
-    console.log(day);
-    var killer_text=text_num+2;//页面原始的两个块设置为不显示了，所以从第三个块开始
-    if((text[killer_text])==undefined){
+
+    var plus2=text_num+2;//页面原始的两个块设置为不显示了，所以从第三个块开始
+    if((text[plus2])==undefined){
         break
     }else {
-        text[killer_text].innerText=deadnum[text_num]+"号被杀手杀死，真实身份是"+deadman[text_num];
+        text[plus2].innerText=deadnum[text_num]+"号被杀手杀死，真实身份是"+deadman[text_num];
         console.log(text_num);
-        console.log(text[killer_text]);
+        console.log(text[plus2]);
     }
-    var vote_text=text_num+3;
-    console.log(vote_text);
-    console.log(text[vote_text]);
-    if((text[vote_text])==undefined){
+    var plus3=text_num+3;
+    console.log(plus3);
+    console.log(text[plus3]);
+    if((text[plus3])==undefined){
         break
     }else {
-        text[vote_text].innerText=deadnum[text_num+1]+"号被投票杀死，真实身份是"+deadman[text_num+1];
-        console.log(text[vote_text]);
+        text[plus3].innerText=deadnum[text_num+1]+"号被投票杀死，真实身份是"+deadman[text_num+1];
+
     }
 
 
 
-    console.log(text_num);
-    console.log(click);
+
     if (click>=(text_num*2)+1 && click<(text_num*2)+4){
-        text[text_num+2].style.display="inline-block"
+        text[text_num+2].style.display="inline-block";
+        line_left[plus2].style.height="0.75rem";
     }
     if (click>=(text_num*2)+4){
-        text[text_num+3].style.display="inline-block";text[text_num+2].style.display="inline-block"
+        text[text_num+3].style.display="inline-block";text[text_num+2].style.display="inline-block";
+        line_left[plus3].style.height="1.55rem";
+        line_left[plus2].style.height="0.75rem";
     }
-}
 
+
+
+}
 
 //控制每一天的菜单折叠
 var swich =0;
@@ -207,6 +209,7 @@ step_content[1].onclick = function(){
     console.log(btn2.state);
     if (btn2.state=="step2"){
         confirm("请亡灵发表遗言");
+        step_content[1].style.background="#92B7A5";
         btn3.state="step2";
         click++;
     }
@@ -221,6 +224,7 @@ step_content[2].onclick = function(){
     console.log(btn3.state);
     if (btn3.state=="step3"){
         confirm("请玩家依次发言");
+        step_content[2].style.background="#92B7A5";
         btn4.state="step3";
         click++;
     }
