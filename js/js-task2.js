@@ -79,7 +79,7 @@ function match(){
 
 function opencheck(){
     if(part0.exec(totalnum.value )){
-        window.open("js-task2-3.html")
+        window.location.href="js-task2-3.html"
     }
     else {
         confirm("请输入正确数字")

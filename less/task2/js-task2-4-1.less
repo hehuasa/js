@@ -11,9 +11,11 @@
 @row-margin:.3rem;
 
 body{
-  padding: @header-height*2.4 0 @header-height*2 0;
+  padding: @header-height*2.4 0 @header-height*2.5 0;
 }
-
+.header-warp{
+  border-bottom: .02rem solid #99dff0;
+}
 .main-tittle{
   display: none;
   position:fixed;top: @header-height;left: 50%;transform: translateX(-50%);
@@ -51,40 +53,16 @@ body{
 }
 
 .main-content{
+  padding-top: @row-height*.2;
   margin: 0 auto;
   max-width: @max-width;width: 100%;
   background:@background-color;
   .main-content-row{
-    display: flex;justify-content: space-between;
-   width: 100%;height: 1rem;
+   width: 100%;height: 1rem;overflow: hidden;
     .empty-box{
-      display: none;
-      height: 100%;
+      display: none;float: left;
+      height: 100%;width: 33.33%;
       margin: @row-height*.2;
-      &:hover ul{
-
-      }
-      ul{
-
-        position: absolute;margin-top:@row-height*.05 ;
-        width:@row-height*.62
-
-      }
-      .li1{
-        display: none;
-        margin: 0 auto;
-        width: @row-height*.2;height: @row-height*.2;
-        & img{
-          width: 100%;
-        }
-      }
-      .li2{
-        margin: 0 auto;
-        width: @row-height*.2;height: @row-height*.2;
-        & img{
-          width: 100%;
-        }
-      }
     .content-btn{
       height: @row-height*.6;width:@row-height*.6 ;
       .role{
@@ -112,10 +90,10 @@ body{
 
   }
     .empty-box1{
-      height: 100%;
-      margin: @row-height*.2;
+      height: 100%;width: 33.33%;float: left;
+      margin: @row-height*.2 0;
       .content-btn{
-        height: @row-height*.6;width:@row-height*.6 ;
+        height: @row-height*.6;width:@row-height*.6 ;margin: 0 auto;
         .role{
           display: none;
           height: @row-height*.48;width: 100%;

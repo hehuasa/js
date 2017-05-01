@@ -1,0 +1,6 @@
+.blue {
+  display: flex;
+}
+.blue .jk {
+  display: none;
+}

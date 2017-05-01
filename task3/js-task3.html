@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script language="JavaScript" src="../js/jquery-3.2.0.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/task3/js-task3.css">
+
+    <title>task3</title>
+</head>
+<body>
+<main  ng-app="myapp" ng-controller="myctrl">
+
+    <div class="main-warp">
+        <div class="tittle font-xxl blue flex-center-middle heiti">喝我水站后台登陆</div>
+        <form name="form">
+            <div class="content flex-middle">
+                <div class="pic borderline-right-solid">
+                    <img src="../img/js-task3-body.png"></div>
+                <input type="text" id="id_" name="form_id" class="input" placeholder="用户名" ng-model="id_" required>
+                <span ng-show="form.form_id.$error.required" class="red"> 请输入用户名</span>
+            </div>
+            <div class="content flex-middle">
+                <div class="pic borderline-right-solid">
+                    <img src="../img/js-task3-body.png"></div>
+                <input  id="password_" name="form_pwd"class="input" placeholder="密码" value="321" ng-model="pwd_"
+                        ng-pattern="/^[0-9]*$/" required>
+                <span ng-show="form.form_pwd.$error.required" class="red">请输入密码</span>
+                <span ng-show="form.form_pwd.$error.pattern" class="red">请输入数字</span>
+            </div>
+            <div class="response" id="response_"  ng-model="res">{{Math.ceil(2.7)}}</div>
+            <button class="btn font-l white heiti" id="btn" ng-click="login()">登录</button>
+        </form>
+    </div>
+
+</main>
+
+<script language="JavaScript" src="../js/task6/js-task3-ag.js"></script>
+</body>
+</html>

@@ -37,7 +37,7 @@ $(document).ready(
     }
 );
 function kill() {//杀手杀人时出现的鼠标事件
-    for (var z = 0; z <= num.length; z++) {
+    for (var z = 0; z <num.length; z++) {
         var clear = document.querySelectorAll("li");
         clear[z].className = "li1"
     }
@@ -146,11 +146,11 @@ for (var p =0;p<=num.length;p++){
 
 
     if(killer_survivor>=farmer_survivor||killer_survivor==0){
-        window.open("js-task2-4-5.html")
+        window.location.href="js-task2-4-5.html"
     }else
         {
         //跳转网页
-        window.open("js-task2-4-2.html")
+            window.location.href="js-task2-4-2.html"
     }
 
 

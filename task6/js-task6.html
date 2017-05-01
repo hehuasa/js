@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/jquery-3.2.0.js"></script>
+    <script src="../bootstrap/js/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../bootstrap/js/bootstrap/3.3.6/bootstrap.js"></script>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap/3.3.6/bootstrap.css">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/task6/task6.css">
+
+    <script src="../js/task6/app.js"></script>
+    <script src="../js/task6/js-task6.js"></script>
+    <title>Task6</title>
+</head>
+<body  ng-app="test" >
+
+<header>
+    <div class="header-warp">
+        <div class="font-l white">萝卜多后台管理系统</div>
+        <div class="white font-nomal">管理员&nbsp;&nbsp;<span class="glyphicon glyphicon-user">&nbsp;</span>用户&nbsp;
+            <button type="button" class="btn btn-sm font-nomal white">退出</button> </div>
+    </div>
+</header>
+<main>
+
+    <div class="route font-nomal borderline-solid" >
+        <button type="button" class="btn-welcome borderline-bottom-solid">
+<span class="glyphicon glyphicon-briefcase"> <a href="#/" class="btn-welcome" >欢迎页</a></span>
+        </button>
+            <button type="button" class="btn-welcome borderline-bottom-solid " id="btn">
+              <span class="	glyphicon glyphicon-asterisk"></span> <a href="#"> 信息管理</a>
+            </button>
+            <ul class="btn-welcome " id="ul_">
+                <li class="borderline-bottom-solid">
+                    <a href="#/list" >公司列表</a>
+                </li>
+                <li class="borderline-bottom-solid">
+                    <a href="#/add">新增公司</a>
+                </li>
+            </ul>
+    </div>
+    <div ng-view></div>
+    <main>
+</body>
+</html>

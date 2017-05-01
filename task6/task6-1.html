@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/task6/task6-1.css">
+    <script src="../js/jquery-3.2.0.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js"></script>
+    <script src="../js/task6/app.js"></script>
+
+    <title>task3</title>
+</head>
+<body>
+<main ng-app="test">
+    <div class="route" >
+        <ul>
+            <li> <a href="#/" class="font-nomal line-height-l">登录</a> </li>
+            <li> <a href="#/computers" class="font-nomal line-height-l">列表</a> </li>
+            <li> <a href="#/printers" class="font-nomal line-height-l">编辑</a> </li>
+        </ul>
+    </div>
+    <div class="main-warp">
+        <div class="tittle font-xxl blue flex-center-middle heiti">喝我水站后台登陆</div>
+        <div class="content flex-middle">
+            <div class="pic borderline-right-solid">
+                <img src="../img/js-task3-body.png"></div>
+            <input type="text" id="id_" class="input" placeholder="用户名" value="">
+        </div>
+        <div class="content flex-middle">
+            <div class="pic borderline-right-solid">
+                <img src="../img/js-task3-body.png"></div>
+            <input type="text" id="password_" class="input" placeholder="密码" value="">
+        </div>
+        <div class="response" id="response_"></div>
+        <button class="btn font-l white heiti" id="btn">登录</button>
+
+    </div>
+    <div ng-view></div>
+</main>
+
+<script language="JavaScript" src="../js/task3/js-task3-jq.js"></script>
+</body>
+</html>

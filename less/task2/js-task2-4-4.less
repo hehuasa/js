@@ -18,7 +18,7 @@ body{
 .main-tittle{
   position:fixed;top: @header-height;left: 50%;transform: translateX(-50%);
   max-width: @max-width;height: @header-height*.8;width: 100%;
-  background: #b9e9f5;
+  background: #b9e9f5;z-index: 5;
 
   & span{
   display: table-cell;vertical-align: middle;
@@ -51,18 +51,18 @@ body{
 }
 
 .main-content{
+  padding-top: @row-height*.2;
   margin: 0 auto;
   max-width: @max-width;width: 100%;
   background:@background-color;
   .main-content-row{
-    display: flex;justify-content: space-between;
-   width: 100%;height: 1rem;
+    width: 100%;height: 1rem;overflow: hidden;
     .box_opacity{
       opacity:0.5
     }
     .empty-box{
-      display: none;
-      height: 100%;
+      display: none;float: left;
+      height: 100%;width: 33.33%;
       margin: @row-height*.2;
       &:hover ul{
 
@@ -70,7 +70,7 @@ body{
       ul{
 
         position: absolute;margin-top:@row-height*.05 ;
-        width:@row-height*.62
+        left: 50%;transform:translateX(-50%) ;
 
       }
       .li1{
@@ -115,15 +115,15 @@ body{
 
   }
     .empty-box1{
-      height: 100%;
-      margin: @row-height*.2;
+      position: relative;
+      height: 100%;width: 33.33%;float: left;
       &:hover ul{
 
       }
       ul{
 
         position: absolute;margin-top:@row-height*.05 ;
-        width:@row-height*.62
+        left: 50%;transform:translateX(-50%) ;
 
       }
       .li1{
@@ -142,7 +142,7 @@ body{
         }
       }
       .content-btn{
-        height: @row-height*.6;width:@row-height*.6 ;
+        height: @row-height*.6;width:@row-height*.6 ;margin: 0 auto;
         .role{
           display: none;
           height: @row-height*.48;width: 100%;
@@ -157,7 +157,7 @@ body{
         }
         .role1{
           height: @row-height*.48;width: 100%;
-          font-size: @font-size;
+          font-size: @font-size;margin: 0 auto;
           background: @color-vote-name;
         }
         .num1{

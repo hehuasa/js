@@ -17,7 +17,7 @@ var sourceNode_night=document.getElementById("night");
 var sourceNode_light=document.getElementById("light");
 
 // 动态控制每天的游戏内容显示
-for (var i =1;i<=day;i++){
+for (var i =1;i<day;i++) {
     console.log(day);
 
     var clonedNode_detail_ = sourceNode_detail_.cloneNode(true); // 克隆节点
@@ -28,13 +28,16 @@ for (var i =1;i<=day;i++){
     sourceNode_night.parentNode.appendChild((clonedNode_night));
     sourceNode_light.parentNode.appendChild((clonedNode_light));
 
-    var daxie = new Array("一","二","三","四","五","六","七","八","九","十");//修改天数显示
-    clonedNode_detail_.innerText="第"+daxie[i-1]+"天";
+    var daxie = new Array("一", "二", "三", "四", "五", "六", "七", "八", "九", "十");//修改天数显示
+    clonedNode_detail_.innerText = "第" + daxie[i - 1] + "天";
 
 
-    clonedNode_detail_.setAttribute("id","detail_"+i);//修改被复制元素的id，以避免重复
-    clonedNode_night.setAttribute("id","night"+i);
-    clonedNode_light.setAttribute("id","light"+i);
+    clonedNode_detail_.setAttribute("id", "detail_" + i);//修改被复制元素的id，以避免重复
+    clonedNode_detail_.style.display = "inline-block";
+    clonedNode_night.setAttribute("id", "night" + i);
+    clonedNode_light.setAttribute("id", "light" + i);
+    clonedNode_night.style.display = "inline-block";
+    clonedNode_light.style.display = "inline-block";
 }
 
 //详细游戏信息显示
@@ -49,20 +52,21 @@ var detail=document.getElementsByClassName("detail");
 var night=document.getElementsByClassName("detail-text1");
 var light=document.getElementsByClassName("detail-text2");
 console.log(deadman);
-
+var z =0;
 var num;
-for ( num=0;num<day;num=num+2){
+for ( num=0;num<=(day*2);num=num+2){
     console.log(num);
     console.log(day);
+    console.log(deadnum);
+    z++;
     var num_1=num+1;//页面原始的文档的块设置为不显示了，所以从第二个块开始
-    night[num_1].innerText="黑夜:"+deadnum[num]+"号玩家被杀死了，真实身份是"+deadman[num];
-    light[num_1].innerText="白天:"+deadnum[num+1]+"号玩家全民投票投死，真实身份是"+deadman[num+1];
+    night[z].innerText="黑夜:"+deadnum[num]+"号玩家被杀死了，真实身份是"+deadman[num];
+    light[z].innerText="白天:"+deadnum[num_1]+"号玩家全民投票投死，真实身份是"+deadman[num_1];
 
-    detail[num_1].style.display="inline-block";
-    night[num_1].style.display="inline-block";
-    light[num_1].style.display="inline-block";
+
     }
 
+
 function again(){
-    window.open("js-task2-2.html")
+    window.location.href="js-task2-2.html"
 }

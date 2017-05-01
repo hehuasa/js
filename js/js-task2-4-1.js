@@ -41,5 +41,5 @@ $(document).ready(
 
 
 function start(){
-    window.open("js-task2-4-2.html")
+    window.location.href="js-task2-4-2.html"
 }

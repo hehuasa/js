@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script  src="js/js/jquery-3.2.0.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <link rel="stylesheet" href="js/css/reset.css">
+    <link rel="stylesheet" href="js/css/font.css">
+    <link rel="stylesheet" href="js/css/layout.css">
+    <link rel="stylesheet" href="js/css/task3/task6-1.css">
+    <title>task3</title>
+</head>
+<body>
+<main>
+
+    <div class="main-warp">
+        <div class="tittle font-xxl blue flex-center-middle heiti">喝我水站后台登陆</div>
+        <form name="form">
+        <div class="content flex-middle">
+            <div class="pic borderline-right-solid">
+                <img src="js/img/js-task3-body.png"></div>
+            <input type="text" id="id_" name="form_id" class="input" placeholder="用户名" ng-model="id_" >
+        </div>
+        <div class="content flex-middle">
+            <div class="pic borderline-right-solid">
+                <img src="js/img/js-task3-body.png"></div>
+            <input  id="password_" name="form_pwd"class="input" placeholder="密码" value="321"
+            >
+        </div>
+        <div class="response" id="response_" >{{res}}</div>
+        <button class="btn font-l white heiti" id="btn">登录</button>
+        </form>
+    </div>
+
+</main>
+
+<script language="JavaScript" src="js/js/task3/js-task3.js"></script>
+</body>
+
+</html>

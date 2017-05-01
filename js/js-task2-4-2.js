@@ -76,7 +76,7 @@ for (i =1;i<=day;i++){
 
     sourceNode_step_.parentNode.appendChild(clonedNode_step_);
     clonedNode_date_.style.display="inline-block";
-    clonedNode_step_.style.display="inline-block";
+
 
 
 
@@ -86,12 +86,13 @@ for (i =1;i<=day;i++){
     clonedNode_step_.setAttribute("id","step_"+i);
 
     var step=document.getElementById("step_"+i);
+
     var step_content=step.getElementsByClassName("step-btn");
     var text_=step.getElementsByTagName("div");
 
 
 }
-
+step.style.display="inline-block";
 var  deadnum=localStorage.deadnum_;//取出存储的死亡玩家序号数组
 
 if (deadnum==undefined){
@@ -110,7 +111,6 @@ if (deadman==undefined){
 
 //杀人信息显示与修改
 var text=document.getElementsByClassName("text");
-
 var line_left=document.getElementsByClassName("line-left");
 
 var text_num;
@@ -140,30 +140,31 @@ for (  text_num=0;text_num<click;text_num=text_num+2){
     if (click>=(text_num*2)+1 && click<(text_num*2)+4){
         text[text_num+2].style.display="inline-block";
         line_left[plus2].style.height="0.75rem";
+
     }
     if (click>=(text_num*2)+4){
         text[text_num+3].style.display="inline-block";text[text_num+2].style.display="inline-block";
         line_left[plus3].style.height="1.55rem";
         line_left[plus2].style.height="0.75rem";
+
     }
 
 
 
 }
 
+
+
 //控制每一天的菜单折叠
-var swich =0;
 function fold(){
     var target=event.target;
     var nextSibling =target.nextSibling;
-
-    if(swich ==0){
-        nextSibling.style.display="none";
-        swich =1;
-    }
-    else {
+    if( nextSibling.style.display==""){
         nextSibling.style.display="inline-block";
-        swich =0;
+
+    }
+    else if(nextSibling.style.display=="inline-block"){
+        nextSibling.style.display=""
     }
 }
 
@@ -185,7 +186,7 @@ step_content[0].onclick = function(){
     btn1.event();
     if (btn1.state=="step1" && click==(day-1)*4){
         step_content[0].style.background="#92B7A5";
-        window.open("js-task2-4-3.html");
+        window.location.href="js-task2-4-3.html";
         btn2.state="step1";
         click++;
         localStorage.click_=click;//存储步骤数
@@ -207,7 +208,7 @@ step_content[1].onclick = function(){
     btn2.state = state_2;
     btn2.event();
     console.log(btn2.state);
-    if (btn2.state=="step2"){
+    if (btn2.state=="step2" && click==(day-1)*4+1){
         confirm("请亡灵发表遗言");
         step_content[1].style.background="#92B7A5";
         btn3.state="step2";
@@ -222,7 +223,7 @@ step_content[1].onclick = function(){
 step_content[2].onclick = function(){
     btn3.event();
     console.log(btn3.state);
-    if (btn3.state=="step3"){
+    if (btn3.state=="step3" && click==(day-1)*4+2){
         confirm("请玩家依次发言");
         step_content[2].style.background="#92B7A5";
         btn4.state="step3";
@@ -244,7 +245,7 @@ step_content[3].onclick = function(){
         localStorage.day_=day;//存储天数
         localStorage.click_=click;//存储步骤数
 
-        window.open("js-task2-4-4.html");
+        window.location.href="js-task2-4-4.html";
     }
     else
     {
@@ -254,11 +255,11 @@ step_content[3].onclick = function(){
 };
 //法官日志
 function log(){
-   window.open("js-task2-4-1.html")
+    window.location.href="js-task2-4-1.html"
 }
 //结束游戏
 function again(){
-    window.open("js-task2-4-5.html")
+    window.location.href="js-task2-4-5.html"
 }
 //进入下一天
 
